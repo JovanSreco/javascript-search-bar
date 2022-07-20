@@ -1,0 +1,14 @@
+{
+  "name": "search-bar",
+  "version": "1.0.0",
+  "description": "A simple search bar for search employees",
+  "main": "script.js",
+  "scripts": {
+    "watch:sass": "sass sass/main.scss css/style.css -w"
+  },
+  "author": "Jovan Sreco",
+  "license": "ISC",
+  "devDependencies": {
+    "sass": "^1.53.0"
+  }
+}
