@@ -1,6 +1,6 @@
 # Javascript Tic Tac Toe
 
-This is a **Search Bar** project that lets search for employees in the input HTML element, the search input will display all cards of employee information that look for Name Email, and City(where they live). 
+This is a **Search Bar** project that searches for employees using your input, the search input will be compared with Name Email, and City(where they live) info, and the correct employees will be displayed.
 You can click the **View More Info** button for more information about every employee.
 
 ## Tools used
