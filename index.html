@@ -11,19 +11,34 @@
 <body>
     <section class="section-search">
         <div class="search">
-            <label for="search__input">Search for employee</label>
-            <input type="search" id="search__input" data-search><input>
+            <label for="search__input" class="search__label">Search for employees</label>
+            <input type="search" class="search__input" id="search__input" placeholder="Search For Employees" data-search required>
         </div>
-        <div class="employees" data-user-cards-container>
-            <div class="employees__card">
-                <div class="employees__data">Name</div>
-            </div>
+        <div class="employees" data-employee-card-container></div>
+        <div class="popup-info" data-popup-info>
+            <ul data-ul-data-popup-info-item>
+                <li class="popup-info__item" data-popup-info-item></li>
+                <li class="popup-info__item" data-popup-info-item></li>
+                <li class="popup-info__item" data-popup-info-item></li>
+                <li class="popup-info__item" data-popup-info-item></li>
+                <li class="popup-info__item" data-popup-info-item></li>
+                <li class="popup-info__item" data-popup-info-item></li>
+                <li class="popup-info__item" data-popup-info-item></li>
+                <li class="popup-info__item" data-popup-info-item></li>
+                <li class="popup-info__item" data-popup-info-item></li>
+                <li class="popup-info__item" data-popup-info-item></li>
+                <button class="btn btn--popup" data-info-popup-btn>Exit</button>
+            </ul>
         </div>
-        <template data-employees>
-            <div class="employees__card">
-                <div class="employees__data">Name</div>
-            </div>
-        </template>
     </section>
+
+    <template data-employee-card-template>
+        <div class="employees-card">
+            <div class="employees-card__info" data-employee-card-info>Name: </div>
+            <div class="employees-card__info" data-employee-card-info>Email: </div>
+            <div class="employees-card__info" data-employee-card-info>City: </div>
+            <button class="btn" data-employee-card-btn>View More Info</button>
+        </div>
+    </template>
 </body>
 </html>

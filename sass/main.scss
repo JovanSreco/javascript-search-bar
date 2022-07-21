@@ -1,0 +1,196 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
+//Basic variables
+$bg-color-main-dark: rgb(255, 206, 73);
+$bg-color-main-light: rgb(255, 236, 185);
+$color-main: rgb(59, 100, 211);
+$color-white: rgb(245,245,245);
+$color-black: rgb(20, 20, 20);
+$color-danger: orangered;
+
+$default-font-size: 1.6rem;
+
+$content-width: 80rem;
+$margin-bottom: 3rem;
+
+//Basic Resets
+html {
+    font-size: 62.5%;
+    box-sizing: border-box;
+}
+
+*, *::after, *::before {
+    box-sizing: inherit;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Rubik', sans-serif;
+    font-size: $default-font-size;
+}
+
+li {
+   text-indent: none;
+   list-style-type: none;
+}
+
+// Rest of SCSS
+.section-search {
+    background-image: linear-gradient(to right bottom, $bg-color-main-light, $bg-color-main-dark);
+    padding: 20rem 0.4rem;
+    position: relative;
+}
+
+.search {
+    width: 100%;
+    max-width: $content-width;
+    margin: 0 auto;
+    text-align: center;
+
+    &__label {
+        display: inline-block;
+        margin-bottom: $margin-bottom;
+        font-size: 3rem;
+        letter-spacing: 0.5rem;
+        color: $color-main;
+    }
+
+    &__input {
+        display: inline-block;
+        width: 80%;
+        max-width: 55rem;
+        padding: 1.5rem 2rem;
+        margin-bottom: $margin-bottom;
+        font-size: $default-font-size;
+        border-radius: 5rem;
+        border: 3px solid $color-main;
+        background-color: $color-white;
+        font-family: inherit;
+        color: $color-black;
+        transition: all .3s;
+
+        &:focus {
+            outline: none;
+            box-shadow: 0 1rem 2rem rgba($color-black, .1);
+            border-bottom: 3px solid $color-main;
+        }
+
+        &:focus:invalid {
+            border: 3px solid $color-danger;
+        }
+
+        &::-webkit-input-placeholder {
+            color: rgba($color-black, 0.5);
+            font-size: $default-font-size;
+            letter-spacing: 0.2rem;
+        }
+    }
+}
+
+.employees {
+    width: $content-width;
+    max-width: 90%;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.btn {
+    display: inline-block;
+    margin: 1rem auto;
+    padding: 1.4rem;
+    border-radius: 10rem;
+    text-transform: uppercase;
+    text-decoration: none;
+    background-color: $color-main;
+    border: none;
+    color: $color-white;
+    font-size: 1.4rem;
+    letter-spacing: 0.2rem;
+    cursor: pointer;
+    transition: all .5s;
+
+    &:hover {
+        transform: translateY(-3px) scale(1.06);
+        box-shadow: 0 1rem 2rem rgba($color-black, .2);
+    }
+
+    &--popup {
+        padding: 1.4rem 5rem;
+    }
+}
+
+.employees-card {
+    flex-basis: 47.5%;
+    border: 1px solid $color-main;
+    background-color: $color-white;
+    color: $color-main;
+    letter-spacing: 0.2rem;
+    padding: .5rem;
+    border-radius: 2rem;
+    hyphens: auto;
+    text-align: center;
+    
+    @media (max-width: 840px)  {
+        flex-basis: 100%;
+    }
+
+    &__info {
+        padding: 0.8rem;
+    }
+}
+
+.popup-info {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    width: 200vw;
+    height: 200vh;
+    border-radius: 100%;
+    background-image: linear-gradient(to right bottom, rgba($bg-color-main-light, .7), rgba($bg-color-main-dark, .7));
+    opacity: 0;
+    z-index: 1;
+    transition: all .7s;
+
+    &__hamburger {
+        position: fixed;
+        top: 10rem;
+        right: 10rem;
+        width: 1rem;
+        height: 2rem;
+        background-color: $color-black;
+        z-index: 2;
+    }
+
+    ul {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-800%, -50%);
+        color: $color-main;
+        font-size: 3rem;
+        letter-spacing: .3rem;
+        visibility: hidden;
+        opacity: 0;
+        transition: all .7s cubic-bezier(.63,-0.46,.51,1.56);
+    }
+
+    &__item {
+        text-align: center;
+        margin-bottom: .4rem;
+    }
+    
+    &.active {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+
+        ul {
+            opacity: 1;
+            transform: translate(-50%, -50%);
+            visibility: visible;
+        }
+    }
+    
+}
