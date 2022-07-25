@@ -1,3 +1,4 @@
+"use strict";
 const employeeCardContainer = document.querySelector("[data-employee-card-container]")
 const employeeCardTemplate = document.querySelector("[data-employee-card-template]")
 const searchInput = document.querySelector("[data-search]")
@@ -23,12 +24,10 @@ fetch("https://jsonplaceholder.typicode.com/users")
     .then(data => {
         data.forEach( (employee) => {
             // Using destructuring, and Map() to store our data for each employee
-            const {id, name, username, email, address: { street: street, suite: suite, city: 
-                city, zipcode: zipcode, geo: {lat: lat, lng: lng}}} = employee
+            const {id, name, username, email, address: { street, suite, city, zipcode, geo: { lat, lng }}} = employee
             //Creating a clone of a Node and setting it as a key in Map and value is an object of all information
             const card = employeeCardTemplate.content.cloneNode(true).children[0]
-            employees.set(card, {id:id,name:name, username:username, email:email, street:street, 
-                          suite:suite, city:city, zipcode:zipcode, lat:lat, lng:lng})
+            employees.set(card, {id,name, username, email, street, suite, city, zipcode, lat, lng})
             // Have to append info to cards during each iteration. Each Card VIEW MORE BTN has to have an event listener for getting more information
             appendInformation(name, email, city, card)
         })
