@@ -20,7 +20,11 @@ searchInput.addEventListener("input", e => {
 
 // Fetch random data about some hypothetical employees then store everything in employees Map
 fetch("https://jsonplaceholder.typicode.com/users")
-    .then(response => response.json())
+    .then(response => {
+        if (!response.ok) {
+            throw new Error(`HTTP error: ${response.status}`);
+        }
+        return response.json()})
     .then(data => {
         data.forEach( (employee) => {
             // Using destructuring, and Map() to store our data for each employee
@@ -31,6 +35,9 @@ fetch("https://jsonplaceholder.typicode.com/users")
             // Have to append info to cards during each iteration. Each Card VIEW MORE BTN has to have an event listener for getting more information
             appendInformation(name, email, city, card)
         })
+    })
+    .catch(error => {
+        alert(`Could not get employee information: ${error}`);
     })
 
 function appendInformation(...args){
