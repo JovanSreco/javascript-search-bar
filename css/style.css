@@ -150,7 +150,8 @@ li {
   letter-spacing: 0.3rem;
   border-radius: 10%;
   color: rgb(59, 100, 211);
-  background-color: rgba(255, 206, 73, 0.8);
+  background-color: rgba(240, 240, 240, 0.85);
+  border: 1px solid rgb(59, 100, 211);
   opacity: 0;
   visibility: hidden;
   transition: all 0.7s cubic-bezier(0.57, -0.2, 0.42, 1.3);
